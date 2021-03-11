@@ -6,7 +6,7 @@
 # INSTALL IMAGE
 # A temporary image that installs production-only dependencies and builds the production-ready front-end bundles.
 
-FROM node:14-alpine as install
+FROM node:15-alpine as install
 RUN apk add --no-cache python make g++
 ENV NODE_ENV production
 WORKDIR /usr/src/docs
@@ -21,7 +21,7 @@ RUN npm run build
 # --------------------------------------------------------------------------------
 # MAIN IMAGE
 
-FROM node:14-alpine
+FROM node:15-alpine
 
 # Let's make our home
 WORKDIR /usr/src/docs
